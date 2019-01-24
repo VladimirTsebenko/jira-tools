@@ -45,6 +45,8 @@ debug = (function(){
       var uDebugging = userProps.getProperty('debugging');
       that.enable( uDebugging == 'true' );
     } catch(e){}
+
+    that.enable(log_enabled || environmentConfiguration.debugEnabled);
   })();
 
   return that;

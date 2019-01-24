@@ -19,14 +19,15 @@
   "devDependencies": {
     "@google/clasp": "^1.7.0",
     "del": "3.x",
+    "directory-exists": "latest",
     "exec-sh": "0.3.x",
     "gulp": "^4.0.0",
     "gulp-changed": "latest",
+    "gulp-find": "0.0.10",
     "gulp-rename": "latest",
     "gulp-replace": "latest",
     "jest": "23.6.x",
-    "yargs": "^12.0.5",
-    "directory-exists": "latest"
+    "yargs": "^12.0.5"
   },
   "scripts": {
     "test": "jest"

@@ -1,5 +1,6 @@
 var gulp = require('gulp');
 var replace = require('gulp-replace');
+var fs = require('fs');
 var del = require('del');
 var execSh = require('exec-sh');
 var rename = require('gulp-rename');
@@ -51,13 +52,20 @@ gulp.task('set-environment-config', function (done) {
       throw "Config directory not found (" + configDirectory + ") - was environement set correctly";
       done(false);
     } else {
-      var stream = gulp
-        .src([configDirectory + "/**/*"])
-        .pipe(gulp.dest("dist/build"));
-
-      stream.on('end', function () {
-        done();
-      });
+//@TODO: Work In Progress
+//      var configObj = '';
+//	  var content = fs.readFileSync(configDirectory + "/environmentConfiguration.gs", 'utf8');
+//	  var match = content.match(/(var\senvironmentConfiguration\s?\=\s?\{[\s\S]+\};)/g);
+//      if ( match.length > 0 ) configObj = match[0];
+//
+//      var stream = gulp
+//        .src(["src/Code.gs"])
+//        .pipe(replace(/var\senvironmentConfiguration\s?\=\s?\{[\s\S]+\};/g, configObj))
+//        .pipe(gulp.dest("src/Code.gs"));
+//
+//      stream.on('end', function () {
+//        done();
+//      });
     }
   });
 });

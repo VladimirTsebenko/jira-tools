@@ -1,7 +1,7 @@
 /**
  * @author Jens Rosemeier <github@jens79.de>
  * @github  https://github.com/ljay79/jira-tools
- * @copyright Jens Rosemeier, 2017-2018
+ * @copyright Jens Rosemeier, 2017-2019
  * 
  * @OnlyCurrentDoc  Limits the script to only accessing the current spreadsheet.
  *
@@ -19,20 +19,18 @@ const debug = require('./debug.gs');
 const environmentConfiguration = require('./environmentConfiguration.gs');
 // End of Node required code block
 
+/**
+ * Simple JSON object used for environment configuration e.g. Debugging / Feature Switches
+ */
+var environmentConfiguration = {
+  "name": "Test",
+};
+
 /** 
  * Add a nice menu option for the users.
  */
 function onOpen(e) {
   addMenu();
-
-  if (e && e.authMode == ScriptApp.AuthMode.FULL) {
-    var userProps = PropertiesService.getUserProperties();
-    debug.enable( (userProps.getProperty('debugging')=='true') );
-  }
-  if (environmentConfiguration.debugEnabled) { 
-    debug.enable(true) 
-  }
-  
 };
 
 /**
@@ -71,9 +69,9 @@ function addMenu() {
 
     .addToUi();
 }
+
 // Node required code block
 module.exports = {
   onOpen: onOpen,
-
 }
 // End of Node required code block
